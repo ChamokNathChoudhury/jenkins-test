@@ -1,5 +1,9 @@
 pipeline {
-    agent none
+    agent {
+        dockerfile {
+            filename 'Dockerfile'
+        }
+    }
     environment {
         CI = 'true'
         /* Per app configured variables */
@@ -16,11 +20,6 @@ pipeline {
     }
     stages { 
         stage('Build') {
-            agent {
-                dockerfile {
-                    filename 'Dockerfile'
-                }
-            }
             steps {
                 sh 'npm install'
             }
