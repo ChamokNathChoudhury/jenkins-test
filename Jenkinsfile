@@ -12,7 +12,7 @@ pipeline {
         dockerRepo = '--some-docker-repo--'
         jenkinsJob = '--some-jenkins-job--'
         ecosystem = 'fe'
-        FORTIFY_ACCESS = credentials('48845hsdh874-hdsf7rwer87')
+        // FORTIFY_ACCESS = credentials('48845hsdh874-hdsf7rwer87')
     }
     options {
         timestamps()
