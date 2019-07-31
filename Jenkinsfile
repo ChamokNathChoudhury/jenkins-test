@@ -5,9 +5,6 @@ pipeline {
         /* Per app configured variables */
         dockerRegistry = '--some-docker-registry--'
 
-        /* Unnecessary. We will be using source from Jenkins configuration. */
-        // gitRepo = 'git@github.expedia.biz:Hotwire/hw-landingpageapp.git'
-
         dockerRepo = '--some-docker-repo--'
         jenkinsJob = '--some-jenkins-job--'
         ecosystem = 'fe'
@@ -17,13 +14,13 @@ pipeline {
         timestamps()
         ansiColor(colorMapName: 'xterm')
     }
-    stages {
-        agent {
-            dockerfile {
-                filename 'Dockerfile'
-            }
-        }
+    stages { 
         stage('Build') {
+            agent {
+                dockerfile {
+                    filename 'Dockerfile'
+                }
+            }
             steps {
                 sh 'npm install'
             }
